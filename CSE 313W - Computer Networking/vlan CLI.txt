@@ -1,0 +1,57 @@
+
+
+Switch 1:
+en
+conf t
+vlan 10
+name student
+exit
+vlan 20
+name teachers
+exit
+int fa0/1
+switchport access vlan 10
+exit
+int fa0/2
+switchport access vlan 10
+exit
+int fa0/3
+switchport access vlan 20
+exit
+int fa0/4
+switchport access vlan 20
+exit
+int fa0/5
+switchport mode trunk
+exit
+interface range fa0/1-4
+switchport mode access
+exit
+
+Switch 2:
+en
+conf t
+vlan 10
+name student
+exit
+vlan 20
+name teachers
+exit
+int fa0/1
+switchport access vlan 10
+exit
+int fa0/2
+switchport access vlan 10
+exit
+int fa0/3
+switchport access vlan 20
+exit
+int fa0/4
+switchport access vlan 20
+exit
+int fa0/5
+switchport mode trunk
+exit
+interface range fa0/1-4
+switchport mode access
+exit
