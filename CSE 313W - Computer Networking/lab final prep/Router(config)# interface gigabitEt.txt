@@ -1,0 +1,31 @@
+Router(config)# interface gigabitEthernet 0/0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+
+Router(config)# interface gigabitEthernet 0/0.10
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 193.168.1.1 255.255.255.0
+Router(config-subif)# exit
+
+Router(config)# interface gigabitEthernet 0/0.20
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 193.168.1.2 255.255.255.0
+Router(config-subif)# exit
+
+Router(config)# interface gigabitEthernet 0/0.30
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 193.168.2.1 255.255.255.0
+Router(config-subif)# exit
+
+Router(config)# interface gigabitEthernet 0/0.40
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 193.168.2.2 255.255.255.0
+Router(config-subif)# exit
+
+Router(config)# exit
+Router# copy running-config startup-config
+
+
+Router(config)# interface gigabitEthernet 0/0/0.20
+Router(config-subif)# no encapsulation dot1Q 20
+Router(config-subif)# exit
